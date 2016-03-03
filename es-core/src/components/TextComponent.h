@@ -1,5 +1,4 @@
-#ifndef _TEXTCOMPONENT_H_
-#define _TEXTCOMPONENT_H_
+#pragma once
 
 #include "GuiComponent.h"
 #include "resources/Font.h"
@@ -53,5 +52,3 @@ private:
 	Alignment mAlignment;
 	float mLineSpacing;
 };
-
-#endif

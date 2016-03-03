@@ -1,5 +1,4 @@
-#ifndef _AUDIOMANAGER_H_
-#define _AUDIOMANAGER_H_
+#pragma once
 
 #include <memory>
 #include <vector>
@@ -33,5 +32,3 @@ public:
 
 	virtual ~AudioManager();
 };
-
-#endif

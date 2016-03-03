@@ -1,5 +1,4 @@
-#ifndef _IMAGECOMPONENT_H_
-#define _IMAGECOMPONENT_H_
+#pragma once
 
 #include "platform.h"
 #include GLHEADER
@@ -86,5 +85,3 @@ private:
 
 	std::shared_ptr<TextureResource> mTexture;
 };
-
-#endif

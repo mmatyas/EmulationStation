@@ -1,5 +1,4 @@
-#ifndef _SOUND_H_
-#define _SOUND_H_
+#pragma once
 
 #include "SDL_audio.h"
 #include <map>
@@ -42,5 +41,3 @@ private:
 	Sound(const std::string & path = "");
 	static std::map< std::string, std::shared_ptr<Sound> > sMap;
 };
-
-#endif
