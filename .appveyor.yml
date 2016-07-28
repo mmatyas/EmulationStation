@@ -1,0 +1,33 @@
+branches:
+  only:
+    - master
+
+platform:
+  - x64
+
+install:
+  - git submodule update --init --recursive
+  - set PATH=C:\msys64\usr\bin;C:\msys64\mingw64\bin;%PATH
+  - set MINGW_ARCH=i686
+  - if [%PLATFORM%]==[x64] set MINGW_ARCH=x86_64
+  - pacman --noconfirm --needed -Sy
+      pkg-config
+      mingw-w64-%MINGW_ARCH%-toolchain
+      mingw-w64-%MINGW_ARCH%-cmake
+      mingw-w64-%MINGW_ARCH%-boost
+      mingw-w64-%MINGW_ARCH%-curl
+      mingw-w64-%MINGW_ARCH%-eigen3
+      mingw-w64-%MINGW_ARCH%-FreeImage
+      mingw-w64-%MINGW_ARCH%-freetype
+      mingw-w64-%MINGW_ARCH%-SDL2
+
+build_script:
+  - set MSYSTEM=MINGW32
+  - if [%PLATFORM%]==[x64] set MSYSTEM=MINGW64
+  - cmake --version
+  - make --version
+  - mkdir build
+  - bash -lc "
+      cd $APPVEYOR_BUILD_FOLDER/build;
+      cmake .. -G 'Unix Makefiles';
+      make" )
