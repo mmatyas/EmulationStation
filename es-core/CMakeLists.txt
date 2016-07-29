@@ -157,8 +157,12 @@ set(EMBEDDED_ASSET_SOURCES
     ${emulationstation-all_SOURCE_DIR}/data/converted/busy_3_svg.cpp
 )
 
+set_source_files_properties(${emulationstation-all_SOURCE_DIR}/data/Resources.h PROPERTIES GENERATED 1)
+set_source_files_properties(${EMBEDDED_ASSET_SOURCES} PROPERTIES GENERATED 1)
+
 list(APPEND CORE_SOURCES ${EMBEDDED_ASSET_SOURCES})
 
 include_directories(${COMMON_INCLUDE_DIRS})
 add_library(es-core STATIC ${CORE_SOURCES} ${CORE_HEADERS})
 target_link_libraries(es-core ${COMMON_LIBRARIES})
+add_dependencies(es-core res2h)
