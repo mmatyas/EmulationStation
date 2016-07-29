@@ -1,0 +1,48 @@
+language: cpp
+
+sudo: required
+dist: trusty
+
+matrix:
+  fast_finish: true
+  include:
+  - compiler: gcc
+  - compiler: clang
+  - os: osx
+  allow_failures:
+  - os: osx
+
+before_script:
+  - if [[ $TRAVIS_OS_NAME == linux ]]; then
+      sudo apt-get -qq update &&
+      sudo apt-get install -y
+        build-essential
+        cmake
+        fonts-droid
+        libsdl2-dev
+        libboost-system-dev
+        libboost-filesystem-dev
+        libboost-date-time-dev
+        libboost-locale-dev
+        libfreeimage-dev
+        libfreetype6-dev
+        libeigen3-dev
+        libcurl4-openssl-dev
+        libasound2-dev
+        libgl1-mesa-dev
+    ; fi
+  - if [[ $TRAVIS_OS_NAME == osx ]]; then
+      brew update &&
+      brew install
+        eigen
+        freeimage
+        freetype
+        sdl2
+    ; fi
+  - $CXX --version
+  - cmake --version
+
+script:
+  - mkdir build && cd build
+  - cmake ..
+  - make
