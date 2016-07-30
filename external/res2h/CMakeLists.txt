@@ -61,15 +61,6 @@ set(R2H_DUMP_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/res2hutils.cpp
 )
 
-#define headers and sources for unit test executable
-set(R2H_UNITTEST_HEADERS
-	${CMAKE_CURRENT_SOURCE_DIR}/src/res2h.h
-)
-
-set(R2H_UNITTEST_SOURCES
-	${CMAKE_CURRENT_SOURCE_DIR}/src/test.cpp
-)
-
 #-------------------------------------------------------------------------------
 #define OS specific sources and headers
 
@@ -91,26 +82,11 @@ set(R2H_LIBRARIES
 )
 
 #-------------------------------------------------------------------------------
-#set up build directories
-
-set(dir ${CMAKE_CURRENT_SOURCE_DIR})
-set(EXECUTABLE_OUTPUT_PATH ${dir} CACHE PATH "Build directory" FORCE)
-set(LIBRARY_OUTPUT_PATH ${dir} CACHE PATH "Build directory" FORCE)
-
-#-------------------------------------------------------------------------------
 #define target
 
 include_directories(${R2H_INCLUDE_DIRS})
 add_executable(res2h ${R2H_SOURCES} ${R2H_HEADERS})
 target_link_libraries(res2h ${R2H_LIBRARIES})
-
-#add dump executable to project
-add_executable(res2hdump ${R2H_DUMP_SOURCES} ${R2H_DUMP_HEADERS})
-target_link_libraries(res2hdump ${R2H_LIBRARIES})
-
-#add unit test executable to project
-add_executable(unittest ${R2H_UNITTEST_SOURCES} ${R2H_UNITTEST_HEADERS})
-target_link_libraries(unittest ${R2H_LIBRARIES})
 
 #-------------------------------------------------------------------------------
 #special properties for windows builds
