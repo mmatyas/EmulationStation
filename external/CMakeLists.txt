@@ -3,8 +3,8 @@
 
 macro(check_submodule_git dir)
 if (NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${dir}/.git")
-    message(SEND_ERROR
-    "\n=== ERROR ===\n"
+    message(WARNING
+    "\n=== WARNING ===\n"
     "Looks like you've forgot to clone the dependencies,"
     " as `${CMAKE_CURRENT_SOURCE_DIR}/${dir}` is not a Git repository.\n"
     "Don't worry, just run `git submodule update --init` to fix this.\n\n")
