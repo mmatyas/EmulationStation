@@ -212,7 +212,7 @@ SystemData* SystemManager::getNext(SystemData* system) const
 	it++;
 	if(it == mSystems.end())
 		return *mSystems.begin();
-	else 
+	else
 		return *it;
 }
 

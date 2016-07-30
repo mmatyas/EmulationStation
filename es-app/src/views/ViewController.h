@@ -34,7 +34,7 @@ public:
 	// pass NULL for "all systems"
 	void onFilesChanged(SystemData* system);
 	void onMetaDataChanged(SystemData* system, const FileData& file);
-	
+
 	// Plays a nice launch effect and launches the game at the end of it.
 	// Once the game terminates, plays a return effect.
 	void launch(FileData& game, Eigen::Vector3f centerCameraOn = Eigen::Vector3f(Renderer::getScreenWidth() / 2.0f, Renderer::getScreenHeight() / 2.0f, 0));
@@ -76,11 +76,11 @@ private:
 
 	void playViewTransition();
 	int getSystemId(SystemData* system);
-	
+
 	std::shared_ptr<GuiComponent> mCurrentView;
 	std::map< SystemData*, std::shared_ptr<IGameListView> > mGameListViews;
 	std::shared_ptr<SystemView> mSystemListView;
-	
+
 	Eigen::Affine3f mCamera;
 	float mFadeOpacity;
 	bool mLockInput;

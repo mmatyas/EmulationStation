@@ -3,15 +3,15 @@
 #include "Window.h"
 #include "animations/LambdaAnimation.h"
 
-DetailedGameListView::DetailedGameListView(Window* window, const FileData& root) : 
-	BasicGameListView(window, root), 
-	mDescContainer(window), mDescription(window), 
+DetailedGameListView::DetailedGameListView(Window* window, const FileData& root) :
+	BasicGameListView(window, root),
+	mDescContainer(window), mDescription(window),
 	mImage(window),
 
-	mLblRating(window), mLblReleaseDate(window), mLblDeveloper(window), mLblPublisher(window), 
+	mLblRating(window), mLblReleaseDate(window), mLblDeveloper(window), mLblPublisher(window),
 	mLblGenre(window), mLblPlayers(window), mLblLastPlayed(window), mLblPlayCount(window),
 
-	mRating(window), mReleaseDate(window), mDeveloper(window), mPublisher(window), 
+	mRating(window), mReleaseDate(window), mDeveloper(window), mPublisher(window),
 	mGenre(window), mPlayers(window), mLastPlayed(window), mPlayCount(window)
 {
 	//mHeaderImage.setPosition(mSize.x() * 0.25f, 0);
@@ -81,7 +81,7 @@ void DetailedGameListView::onThemeChanged(const std::shared_ptr<ThemeData>& them
 	std::vector<TextComponent*> labels = getMDLabels();
 	assert(labels.size() == 8);
 	const char* lblElements[8] = {
-		"md_lbl_rating", "md_lbl_releasedate", "md_lbl_developer", "md_lbl_publisher", 
+		"md_lbl_rating", "md_lbl_releasedate", "md_lbl_developer", "md_lbl_publisher",
 		"md_lbl_genre", "md_lbl_players", "md_lbl_lastplayed", "md_lbl_playcount"
 	};
 
@@ -95,7 +95,7 @@ void DetailedGameListView::onThemeChanged(const std::shared_ptr<ThemeData>& them
 	std::vector<GuiComponent*> values = getMDValues();
 	assert(values.size() == 8);
 	const char* valElements[8] = {
-		"md_rating", "md_releasedate", "md_developer", "md_publisher", 
+		"md_rating", "md_releasedate", "md_developer", "md_publisher",
 		"md_genre", "md_players", "md_lastplayed", "md_playcount"
 	};
 
@@ -119,7 +119,7 @@ void DetailedGameListView::initMDLabels()
 	const unsigned int rowCount = components.size() / 2;
 
 	Vector3f start(mSize.x() * 0.01f, mSize.y() * 0.625f, 0.0f);
-	
+
 	const float colSize = (mSize.x() * 0.48f) / colCount;
 	const float rowPadding = 0.01f * mSize.y();
 
@@ -204,7 +204,7 @@ void DetailedGameListView::updateInfoPanel()
 			mLastPlayed.setValue(metadata.get("lastplayed"));
 			mPlayCount.setValue(metadata.get("playcount"));
 		}
-		
+
 		fadingOut = false;
 	}
 
@@ -221,7 +221,7 @@ void DetailedGameListView::updateInfoPanel()
 		//   then animate if reverse != fadingOut
 		// an animation is not playing
 		//   then animate if opacity != our target opacity
-		if((comp->isAnimationPlaying(0) && comp->isAnimationReversed(0) != fadingOut) || 
+		if((comp->isAnimationPlaying(0) && comp->isAnimationReversed(0) != fadingOut) ||
 			(!comp->isAnimationPlaying(0) && comp->getOpacity() != (fadingOut ? 0 : 255)))
 		{
 			auto func = [comp](float t)

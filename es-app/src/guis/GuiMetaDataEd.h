@@ -10,7 +10,7 @@
 class GuiMetaDataEd : public GuiComponent
 {
 public:
-	GuiMetaDataEd(Window* window, const FileData& file, 
+	GuiMetaDataEd(Window* window, const FileData& file,
 		const std::function<void()>& savedCallback, const std::function<void()>& deleteFunc);
 
 	bool input(InputConfig* config, Input input) override;
@@ -25,7 +25,7 @@ private:
 
 	NinePatchComponent mBackground;
 	ComponentGrid mGrid;
-	
+
 	std::shared_ptr<TextComponent> mTitle;
 	std::shared_ptr<TextComponent> mSubtitle;
 	std::shared_ptr<ComponentGrid> mHeaderGrid;
@@ -39,7 +39,7 @@ private:
 	ScraperSearchParams mScraperParams;
 
 	std::vector< std::shared_ptr<GuiComponent> > mEditors;
-	
+
 	std::function<void()> mSavedCallback;
 	std::function<void()> mDeleteFunc;
 };

@@ -95,7 +95,7 @@ namespace PlatformIds
 
 		if(*mameNames)
 			return *(mameNames + 1);
-		
+
 		return from;
 	}
 }

@@ -1,9 +1,9 @@
 #include "MetaData.h"
 #include <boost/assign.hpp>
 
-MetaDataDecl gameDecls[] = { 
+MetaDataDecl gameDecls[] = {
 	// key,			type,					default,			statistic,	name in GuiMetaDataEd,	prompt in GuiMetaDataEd
-	{"name",		MD_STRING,				"", 				false,		"name",					"enter game name"}, 
+	{"name",		MD_STRING,				"", 				false,		"name",					"enter game name"},
 	{"desc",		MD_MULTILINE_STRING,	"", 				false,		"description",			"enter description"},
 	{"image",		MD_IMAGE_PATH,			"", 				false,		"image",				"enter path to image"},
 	{"thumbnail",	MD_IMAGE_PATH,			"", 				false,		"thumbnail",			"enter path to thumbnail"},
@@ -18,17 +18,17 @@ MetaDataDecl gameDecls[] = {
 };
 
 // because of how the GamelistDB is set up, this must be a subset of gameDecls
-MetaDataDecl folderDecls[] = { 
-	{"name",		MD_STRING,				"", 	false}, 
+MetaDataDecl folderDecls[] = {
+	{"name",		MD_STRING,				"", 	false},
 	{"desc",		MD_MULTILINE_STRING,	"", 	false},
 	{"image",		MD_IMAGE_PATH,			"", 	false},
 	{"thumbnail",	MD_IMAGE_PATH,			"", 	false},
 };
 
 std::map< MetaDataListType, std::vector<MetaDataDecl> > MDD_map = boost::assign::map_list_of
-	(GAME_METADATA, 
+	(GAME_METADATA,
 		std::vector<MetaDataDecl>(gameDecls, gameDecls + sizeof(gameDecls) / sizeof(gameDecls[0])))
-	(FOLDER_METADATA, 
+	(FOLDER_METADATA,
 		std::vector<MetaDataDecl>(folderDecls, folderDecls + sizeof(folderDecls) / sizeof(folderDecls[0])));
 const std::map<MetaDataListType, std::vector<MetaDataDecl> >& getMDDMap()
 {

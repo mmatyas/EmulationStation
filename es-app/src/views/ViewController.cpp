@@ -107,7 +107,7 @@ void ViewController::goToGameList(SystemData* system)
 void ViewController::playViewTransition()
 {
 	Eigen::Vector3f target(Eigen::Vector3f::Identity());
-	if(mCurrentView) 
+	if(mCurrentView)
 		target = mCurrentView->getPosition();
 
 	// no need to animate, we're not going anywhere (probably goToNextGamelist() or goToPrevGamelist() when there's only 1 system)
@@ -208,7 +208,7 @@ void ViewController::launch(FileData& game, Eigen::Vector3f center)
 		});
 	}else{
 		// move camera to zoom in on center + fade out, launch game, come back in
-		setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 1500), 0, [this, origCamera, center, game] 
+		setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 1500), 0, [this, origCamera, center, game]
 		{
 			game.getSystem()->launchGame(mWindow, game);
 			mCamera = origCamera;
@@ -234,7 +234,7 @@ std::shared_ptr<IGameListView> ViewController::getGameListView(SystemData* syste
 		view = std::shared_ptr<IGameListView>(new DetailedGameListView(mWindow, system->getRootFolder()));
 	else
 		view = std::shared_ptr<IGameListView>(new BasicGameListView(mWindow, system->getRootFolder()));
-		
+
 	// uncomment for experimental "image grid" view
 	//view = std::shared_ptr<IGameListView>(new GridGameListView(mWindow, system->getRootFolder()));
 
@@ -301,7 +301,7 @@ void ViewController::render(const Eigen::Affine3f& parentTrans)
 
 	// draw systemview
 	getSystemListView()->render(trans);
-	
+
 	// draw gamelists
 	for(auto it = mGameListViews.begin(); it != mGameListViews.end(); it++)
 	{
@@ -397,7 +397,7 @@ std::vector<HelpPrompt> ViewController::getHelpPrompts()
 	std::vector<HelpPrompt> prompts;
 	if(!mCurrentView)
 		return prompts;
-	
+
 	prompts = mCurrentView->getHelpPrompts();
 	prompts.push_back(HelpPrompt("start", "menu"));
 

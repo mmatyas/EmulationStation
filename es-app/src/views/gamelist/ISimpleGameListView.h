@@ -29,7 +29,7 @@ protected:
 	TextComponent mHeaderText;
 	ImageComponent mHeaderImage;
 	ImageComponent mBackground;
-	
+
 	ThemeExtras mThemeExtras;
 
 	std::stack<FileData> mCursorStack;
