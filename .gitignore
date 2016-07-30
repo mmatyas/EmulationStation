@@ -21,6 +21,7 @@ data/converted/*.cpp
 
 # Compiled executable
 emulationstation
+res2h
 
 # build directory
 build
