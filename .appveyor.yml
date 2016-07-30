@@ -29,5 +29,6 @@ build_script:
   - mkdir build
   - bash -lc "
       cd $APPVEYOR_BUILD_FOLDER/build;
+      echo 'target_link_libraries(emulationstation winmm.lib)' >> ../es-app/CMakeLists.txt;
       cmake .. -G 'Unix Makefiles';
       make" )
