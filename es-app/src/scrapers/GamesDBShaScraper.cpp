@@ -48,7 +48,7 @@ boost::filesystem::path get_or_fetch_hash_file()
 		LOG(LogError) << "HTTP request error - " << myRequest.getErrorMsg();
 		return boost::filesystem::path ("");
 	}
-	std::ofstream ofile (hash_path.c_str());
+	std::ofstream ofile (hash_path.string());
 	ofile << myRequest.getContent();
 	ofile.close();
 	return hash_path;
@@ -62,7 +62,7 @@ void init_hash_maps ()
 	{
 		return;
 	}
-	std::ifstream file (hash_path.c_str());
+	std::ifstream file (hash_path.string());
 	if (!file)
 	{
 		return;

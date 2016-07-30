@@ -245,7 +245,7 @@ std::string hash_rom(HashFunc * hf, boost::filesystem::path path)
 {
 	std::streampos size;
 	boost::filesystem::path ext;
-	std::ifstream file (path.c_str(), std::ios::binary | std::ios::ate);
+	std::ifstream file (path.string(), std::ios::binary | std::ios::ate);
 	if (file.is_open())
 	{
 		size = file.tellg();
