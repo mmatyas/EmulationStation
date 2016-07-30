@@ -1,4 +1,0 @@
-[submodule "external/res2h"]
-	path = external/res2h
-	url = https://github.com/HorstBaerbel/res2h.git
-	ignore = untracked
