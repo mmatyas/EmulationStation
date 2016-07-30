@@ -21,7 +21,7 @@ SystemManager* SystemManager::getInstance()
 
 std::string SystemManager::getDatabasePath()
 {
-	return getHomePath() + "/.emulationstation/gamelist.db";
+	return getConfigDirectory() + "/gamelist.db";
 }
 
 SystemManager::SystemManager() : mDatabase(getDatabasePath())
@@ -199,7 +199,7 @@ void SystemManager::writeExampleConfig(const fs::path& path)
 
 fs::path SystemManager::getConfigPath(bool forWrite)
 {
-	fs::path path = getHomePath() + "/.emulationstation/es_systems.cfg";
+	fs::path path = getConfigDirectory() + "/es_systems.cfg";
 	if(forWrite || fs::exists(path))
 		return path.generic_string();
 
@@ -268,7 +268,7 @@ fs::path SystemManager::getGamelistXMLPath(const SystemData* sys, bool forWrite)
 	if(fs::exists(filePath))
 		return filePath;
 
-	filePath = getHomePath() + "/.emulationstation/gamelists/" + sys->getName() + "/gamelist.xml";
+	filePath = getConfigDirectory() + "/gamelists/" + sys->getName() + "/gamelist.xml";
 	if(forWrite) // make sure the directory exists if we're going to write to it, or crashes will happen
 		fs::create_directories(filePath.parent_path());
 	if(forWrite || fs::exists(filePath))

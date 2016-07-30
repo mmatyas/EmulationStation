@@ -60,6 +60,11 @@ if(DEFINED BCMHOST)
     add_definitions(-D_RPI_)
 endif()
 
+option(XDG_ON_OSX "Try to store settings in XDG_CONFIG_HOME on OSX" OFF)
+if(XDG_ON_OSX)
+    add_definitions(-DUSE_XDG_OSX)
+endif()
+
 #-------------------------------------------------------------------------------
 
 # Require C++11

@@ -5,6 +5,8 @@
 
 #ifdef WIN32
 #include <codecvt>
+#include <shlobj.h>
+#include <windows.h>
 #endif
 
 std::string getHomePath()
@@ -37,6 +39,31 @@ std::string getHomePath()
 	// convert path to generic directory seperators
 	boost::filesystem::path genericPath(homePath);
 	return genericPath.generic_string();
+}
+
+std::string getConfigDirectory()
+{
+	boost::filesystem::path path;
+#ifdef _WIN32
+	CHAR my_documents[MAX_PATH];
+	SHGetFolderPath(NULL, CSIDL_PERSONAL, NULL, SHGFP_TYPE_CURRENT, my_documents);
+	path = boost::filesystem::path(my_documents) / "EmulationStation";
+#elif __APPLE__ && !defined(USE_XDG_OSX)
+	const char* homePath = getenv("HOME");
+	path = boost::filesystem::path(homePath);
+	path /= "Library" / "Application Support" / "org.emulationstation.EmulationStation";
+#else
+	const char* envXdgConfig = getenv("XDG_CONFIG_HOME");
+	if(envXdgConfig) {
+		path = boost::filesystem::path(envXdgConfig);
+	} else {
+		const char* homePath = getenv("HOME");
+		path = boost::filesystem::path(homePath);
+		path /= boost::filesystem::path(".config");
+	}
+	path /= boost::filesystem::path("emulationstation");
+#endif
+	return path.generic_string();
 }
 
 int runShutdownCommand()

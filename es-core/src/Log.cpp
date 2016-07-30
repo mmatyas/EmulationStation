@@ -14,8 +14,7 @@ LogLevel Log::getReportingLevel()
 
 std::string Log::getLogPath()
 {
-	std::string home = getHomePath();
-	return home + "/.emulationstation/es_log.txt";
+	return getConfigDirectory() + "/es_log.txt";
 }
 
 void Log::setReportingLevel(LogLevel level)
