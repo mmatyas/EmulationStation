@@ -40,7 +40,7 @@ public:
 
 private:
 	static SystemManager* sInstance;
-	
+
 	std::vector<SystemData*> mSystems;
 	GamelistDB mDatabase;
 

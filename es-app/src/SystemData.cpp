@@ -13,7 +13,7 @@
 
 namespace fs = boost::filesystem;
 
-SystemData::SystemData(const std::string& name, const std::string& fullName, const std::string& startPath, const std::vector<std::string>& extensions, 
+SystemData::SystemData(const std::string& name, const std::string& fullName, const std::string& startPath, const std::vector<std::string>& extensions,
 	const std::string& command, const std::vector<PlatformIds::PlatformId>& platformIds, const std::string& themeFolder) :
 	mRoot(FileData(".", this, FileType::FOLDER))
 {
@@ -46,7 +46,7 @@ std::string strreplace(std::string str, const std::string& replace, const std::s
 	size_t pos;
 	while((pos = str.find(replace)) != std::string::npos)
 		str = str.replace(pos, replace.length(), with.c_str(), with.length());
-	
+
 	return str;
 }
 

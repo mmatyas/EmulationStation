@@ -63,7 +63,7 @@ FileData::FileData() : FileData("", NULL, (FileType)0)
 {
 }
 
-FileData::FileData(const std::string& fileID, const std::string& systemID, FileType type) : 
+FileData::FileData(const std::string& fileID, const std::string& systemID, FileType type) :
 	FileData(fileID, SystemManager::getInstance()->getSystemByName(systemID), type)
 {
 }

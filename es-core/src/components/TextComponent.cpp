@@ -6,13 +6,13 @@
 #include "Util.h"
 #include "Settings.h"
 
-TextComponent::TextComponent(Window* window) : GuiComponent(window), 
+TextComponent::TextComponent(Window* window) : GuiComponent(window),
 	mFont(Font::get(FONT_SIZE_MEDIUM)), mUppercase(false), mColor(0x000000FF), mAutoCalcExtent(true, true), mAlignment(ALIGN_LEFT), mLineSpacing(1.5f)
 {
 }
 
 TextComponent::TextComponent(Window* window, const std::string& text, const std::shared_ptr<Font>& font, unsigned int color, Alignment align,
-	Eigen::Vector3f pos, Eigen::Vector2f size) : GuiComponent(window), 
+	Eigen::Vector3f pos, Eigen::Vector2f size) : GuiComponent(window),
 	mFont(NULL), mUppercase(false), mColor(0x000000FF), mAutoCalcExtent(true, true), mAlignment(align), mLineSpacing(1.5f)
 {
 	setFont(font);
@@ -75,7 +75,7 @@ void TextComponent::render(const Eigen::Affine3f& parentTrans)
 
 	/*Eigen::Vector3f dim(mSize.x(), mSize.y(), 0);
 	dim = trans * dim - trans.translation();
-	Renderer::pushClipRect(Eigen::Vector2i((int)trans.translation().x(), (int)trans.translation().y()), 
+	Renderer::pushClipRect(Eigen::Vector2i((int)trans.translation().x(), (int)trans.translation().y()),
 		Eigen::Vector2i((int)(dim.x() + 0.5f), (int)(dim.y() + 0.5f)));
 		*/
 
@@ -90,7 +90,7 @@ void TextComponent::render(const Eigen::Affine3f& parentTrans)
 			Renderer::setMatrix(trans);
 			Renderer::drawRect(0.f, 0.f, mSize.x(), mSize.y(), 0xFF000033);
 		}
-		
+
 		trans.translate(off);
 		trans = roundMatrix(trans);
 		Renderer::setMatrix(trans);

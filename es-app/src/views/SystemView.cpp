@@ -54,23 +54,23 @@ void SystemView::populate()
 			ImageComponent* logoSelected = new ImageComponent(mWindow);
 			logoSelected->setMaxSize(Eigen::Vector2f(logoSize().x() * SELECTED_SCALE, logoSize().y() * SELECTED_SCALE * 0.70f));
 			logoSelected->applyTheme((*it)->getTheme(), "system", "logo", ThemeFlags::PATH);
-			logoSelected->setPosition((logoSize().x() - logoSelected->getSize().x()) / 2, 
+			logoSelected->setPosition((logoSize().x() - logoSelected->getSize().x()) / 2,
 				(logoSize().y() - logoSelected->getSize().y()) / 2); // center
 			e.data.logoSelected = std::shared_ptr<GuiComponent>(logoSelected);
 		}else{
 			// no logo in theme; use text
-			TextComponent* text = new TextComponent(mWindow, 
-				(*it)->getName(), 
-				Font::get(FONT_SIZE_LARGE), 
-				0x000000FF, 
+			TextComponent* text = new TextComponent(mWindow,
+				(*it)->getName(),
+				Font::get(FONT_SIZE_LARGE),
+				0x000000FF,
 				ALIGN_CENTER);
 			text->setSize(logoSize());
 			e.data.logo = std::shared_ptr<GuiComponent>(text);
 
-			TextComponent* textSelected = new TextComponent(mWindow, 
-				(*it)->getName(), 
-				Font::get((int)(FONT_SIZE_LARGE * SELECTED_SCALE)), 
-				0x000000FF, 
+			TextComponent* textSelected = new TextComponent(mWindow,
+				(*it)->getName(),
+				Font::get((int)(FONT_SIZE_LARGE * SELECTED_SCALE)),
+				0x000000FF,
 				ALIGN_CENTER);
 			textSelected->setSize(logoSize());
 			e.data.logoSelected = std::shared_ptr<GuiComponent>(textSelected);
@@ -153,13 +153,13 @@ void SystemView::onCursorChanged(const CursorState& state)
 
 	float endPos = target; // directly
 	float dist = abs(endPos - startPos);
-	
+
 	if(abs(target + posMax - startPos) < dist)
 		endPos = target + posMax; // loop around the end (0 -> max)
 	if(abs(target - posMax - startPos) < dist)
 		endPos = target - posMax; // loop around the start (max - 1 -> -1)
 
-	
+
 	// animate mSystemInfo's opacity (fade out, wait, fade back in)
 
 	cancelAnimation(1);
@@ -178,12 +178,12 @@ void SystemView::onCursorChanged(const CursorState& state)
 	// also change the text after we've fully faded out
 	setAnimation(infoFadeOut, 0, [this, gameCount] {
 		std::stringstream ss;
-		
+
 		// only display a game count if there are at least 2 games
 		if(gameCount > 1)
 			ss << gameCount << " GAMES AVAILABLE";
 
-		mSystemInfo.setText(ss.str()); 
+		mSystemInfo.setText(ss.str());
 	}, false, 1);
 
 	// only display a game count if there are at least 2 games
@@ -257,7 +257,7 @@ void SystemView::render(const Eigen::Affine3f& parentTrans)
 		return;
 
 	Eigen::Affine3f trans = getTransform() * parentTrans;
-	
+
 	// draw the list elements (titles, backgrounds, logos)
 	const float logoSizeX = logoSize().x() + LOGO_PADDING;
 

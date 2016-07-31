@@ -5,8 +5,8 @@
 #include "SystemManager.h"
 #include "Settings.h"
 
-GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : GuiComponent(window), 
-	mSystem(system), 
+GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : GuiComponent(window),
+	mSystem(system),
 	mMenu(window, "OPTIONS")
 {
 	addChild(&mMenu);
@@ -76,8 +76,8 @@ void GuiGamelistOptions::openMetaDataEd()
 	// open metadata editor
 	const FileData& file = getGamelist()->getCursor();
 	ScraperSearchParams p(file.getSystem(), file);
-	mWindow->pushGui(new GuiMetaDataEd(mWindow, file, 
-		std::bind(&IGameListView::onMetaDataChanged, getGamelist(), file), [this, file] { 
+	mWindow->pushGui(new GuiMetaDataEd(mWindow, file,
+		std::bind(&IGameListView::onMetaDataChanged, getGamelist(), file), [this, file] {
 			boost::filesystem::remove(file.getPath()); // actually delete the file on the filesystem
 			SystemManager::getInstance()->database().updateExists(file); // update the database
 			getGamelist()->onFilesChanged(); // tell the view
@@ -93,7 +93,7 @@ void GuiGamelistOptions::jumpToLetter()
 	// TODO
 	/*
 	const std::vector<FileData>& files = gamelist->getCursor()->getParent()->getChildren();
-	
+
 	long min = 0;
 	long max = files.size() - 1;
 	long mid = 0;

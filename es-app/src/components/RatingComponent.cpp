@@ -104,10 +104,10 @@ void RatingComponent::render(const Eigen::Affine3f& parentTrans)
 
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-	
+
 	glVertexPointer(2, GL_FLOAT, sizeof(Vertex), &mVertices[0].pos);
 	glTexCoordPointer(2, GL_FLOAT, sizeof(Vertex), &mVertices[0].tex);
-	
+
 	mFilledTexture->bind();
 	glDrawArrays(GL_TRIANGLES, 0, 6);
 
@@ -116,7 +116,7 @@ void RatingComponent::render(const Eigen::Affine3f& parentTrans)
 
 	glDisableClientState(GL_VERTEX_ARRAY);
 	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-	
+
 	glDisable(GL_TEXTURE_2D);
 	glDisable(GL_BLEND);
 

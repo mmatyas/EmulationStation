@@ -11,7 +11,7 @@
 class SystemData
 {
 public:
-	SystemData(const std::string& name, const std::string& fullName, const std::string& startPath, const std::vector<std::string>& extensions, 
+	SystemData(const std::string& name, const std::string& fullName, const std::string& startPath, const std::vector<std::string>& extensions,
 		const std::string& command, const std::vector<PlatformIds::PlatformId>& platformIds, const std::string& themeFolder);
 	virtual ~SystemData();
 
@@ -27,7 +27,7 @@ public:
 	inline const FileData& getRootFolder() const { return mRoot; }
 
 	std::string getThemePath() const;
-	
+
 	unsigned int getGameCount() const;
 	bool hasFileWithImage() const;
 

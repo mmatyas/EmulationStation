@@ -76,9 +76,9 @@ protected:
 	const ListLoopType mLoopType;
 
 	std::vector<Entry> mEntries;
-	
+
 public:
-	IList(Window* window, const ScrollTierList& tierList = LIST_SCROLL_STYLE_QUICK, const ListLoopType& loopType = LIST_PAUSE_AT_END) : GuiComponent(window), 
+	IList(Window* window, const ScrollTierList& tierList = LIST_SCROLL_STYLE_QUICK, const ListLoopType& loopType = LIST_PAUSE_AT_END) : GuiComponent(window),
 		mGradient(window), mTierList(tierList), mLoopType(loopType)
 	{
 		mCursor = 0;
@@ -86,7 +86,7 @@ public:
 		mScrollVelocity = 0;
 		mScrollTierAccumulator = 0;
 		mScrollCursorAccumulator = 0;
-		
+
 		mTitleOverlayOpacity = 0x00;
 		mTitleOverlayColor = 0xFFFFFF00;
 		mGradient.setResize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
@@ -147,7 +147,7 @@ public:
 
 		return false;
 	}
-	
+
 	// entry management
 	void add(const Entry& e)
 	{
@@ -249,7 +249,7 @@ protected:
 		Eigen::Vector2f off = mTitleOverlayFont->sizeText(text);
 		off[0] = (Renderer::getScreenWidth() - off.x()) * 0.5f;
 		off[1] = (Renderer::getScreenHeight() - off.y()) * 0.5f;
-		
+
 		Eigen::Affine3f identTrans = Eigen::Affine3f::Identity();
 
 		mGradient.setOpacity(mTitleOverlayOpacity);

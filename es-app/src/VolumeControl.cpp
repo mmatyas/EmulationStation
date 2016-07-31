@@ -169,7 +169,7 @@ void VolumeControl::init()
 			}
 		}
 	}
-	else 
+	else
 	{
 		//Windows Vista or above. use EndpointVolume API. get device enumerator
 		if (endpointVolume == nullptr)
@@ -285,7 +285,7 @@ int VolumeControl::getVolume() const
 		mixerControlDetails.cMultipleItems = 0; //always 0 except for a MIXERCONTROL_CONTROLF_MULTIPLE control
 		mixerControlDetails.paDetails = &value;
 		mixerControlDetails.cbDetails = sizeof(MIXERCONTROLDETAILS_UNSIGNED);
-		if (mixerGetControlDetails((HMIXEROBJ)mixerHandle, &mixerControlDetails, MIXER_GETCONTROLDETAILSF_VALUE) == MMSYSERR_NOERROR) 
+		if (mixerGetControlDetails((HMIXEROBJ)mixerHandle, &mixerControlDetails, MIXER_GETCONTROLDETAILSF_VALUE) == MMSYSERR_NOERROR)
 		{
 			volume = (uint8_t)round((value.dwValue * 100) / 65535);
 		}
@@ -304,7 +304,7 @@ int VolumeControl::getVolume() const
 		}else{
 			LOG(LogError) << "VolumeControl::getVolume() - Failed to get master volume!";
 		}
-		
+
 	}
 #endif
 	//clamp to 0-100 range
@@ -344,7 +344,7 @@ void VolumeControl::setVolume(int volume)
 		{
 			//ok. bring into minVolume-maxVolume range and set
 			long rawVolume = (volume * (maxVolume - minVolume) / 100) + minVolume;
-			if (snd_mixer_selem_set_playback_volume(mixerElem, SND_MIXER_SCHN_FRONT_LEFT, rawVolume) < 0 
+			if (snd_mixer_selem_set_playback_volume(mixerElem, SND_MIXER_SCHN_FRONT_LEFT, rawVolume) < 0
 				|| snd_mixer_selem_set_playback_volume(mixerElem, SND_MIXER_SCHN_FRONT_RIGHT, rawVolume) < 0)
 			{
 				LOG(LogError) << "VolumeControl::getVolume() - Failed to set mixer volume!";
