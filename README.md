@@ -29,7 +29,7 @@ cmake .
 make
 ```
 
-- If your problem still isn't gone, the best way to report a bug is to post an issue on GitHub. Try to post the simplest steps possible to reproduce the bug. Include files you think might be related (except for ROMs, of course). If you haven't re-run ES since the crash, the log file `~/.emulationstation/es_log.txt` is also helpful.
+- If your problem still isn't gone, the best way to report a bug is to post an issue on GitHub. Try to post the simplest steps possible to reproduce the bug. Include files you think might be related (except for ROMs, of course). If you haven't re-run ES since the crash, the log file `$CONFIG_DIR/es_log.txt` is also helpful.
 
 Building
 ========
@@ -79,12 +79,21 @@ Complete Raspberry Pi build instructions at [emulationstation.org](http://emulat
 Configuring
 ===========
 
-**~/.emulationstation/es_systems.cfg:**
-When first run, an example systems configuration file will be created at `~/.emulationstation/es_systems.cfg`.  `~` is `$HOME` on Linux, and `%HOMEPATH%` on Windows.  This example has some comments explaining how to write the configuration file. See the "Writing an es_systems.cfg" section for more information.
+Configuration files are stored in `$CONFIG_DIR`, which is by default
+
+- on Windows: `My Documents/EmulationStation/`
+- on Linux: `$XDG_CONFIG_HOME/emulationstation/` which usually defaults to `~/.config/emulationstation/`
+- on OSX: `~/Library/Application Support/org.emulationstation.EmulationStation/` by default, or the same as Linux if EmulationStation is build with the `XDG_ON_OSX` CMake flag.
+
+Alternatively you can specify `$CONFIG_DIR` through the `--config-dir [path]` command line option.
+
+**es_systems.cfg:**
+
+When first run, an example systems configuration file will be created at `$CONFIG_DIR/es_systems.cfg`. This example has some comments explaining how to write the configuration file. See the "Writing an es_systems.cfg" section for more information.
 
 **Keep in mind you'll have to set up your emulator separately from EmulationStation!**
 
-**~/.emulationstation/es_input.cfg:**
+**es_input.cfg:**
 When you first start EmulationStation, you will be prompted to configure an input device. The process is thus:
 
 1. Hold a button on the device you want to configure.  This includes the keyboard.
@@ -95,11 +104,11 @@ When you first start EmulationStation, you will be prompted to configure an inpu
 
 4. Choose "SAVE" to save this device and close the input configuration screen.
 
-The new configuration will be added to the `~/.emulationstation/es_input.cfg` file.
+The new configuration will be added to the `es_input.cfg` file.
 
 **Both new and old devices can be (re)configured at any time by pressing the Start button and choosing "CONFIGURE INPUT".**  From here, you may unplug the device you used to open the menu and plug in a new one, if necessary.  New devices will be appended to the existing input configuration file, so your old devices will remain configured.
 
-**If your controller stops working, you can delete the `~/.emulationstation/es_input.cfg` file to make the input configuration screen re-appear on next run.**
+**If your controller stops working, you can delete the `es_input.cfg` file to make the input configuration screen re-appear on next run.**
 
 
 You can use `--help` or `-h` to view a list of command-line options. Briefly outlined here:
@@ -126,7 +135,7 @@ Complete configuration instructions at [emulationstation.org](http://emulationst
 The `es_systems.cfg` file contains the system configuration data for EmulationStation, written in XML.  This tells EmulationStation what systems you have, what platform they correspond to (for scraping), and where the games are located.
 
 ES will check two places for an es_systems.cfg file, in the following order, stopping after it finds one that works:
-* `~/.emulationstation/es_systems.cfg`
+* `$CONFIG_DIR/es_systems.cfg`
 * `/etc/emulationstation/es_systems.cfg`
 
 The order EmulationStation displays systems reflects the order you define them in.

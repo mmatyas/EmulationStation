@@ -19,12 +19,12 @@ std::vector<const char*> settings_dont_save = boost::assign::list_of
 	("Windowed")
 	("VSync")
 	("HideConsole")
+	("ConfigDirectory")
 	("IgnoreGamelist");
 
 Settings::Settings()
 {
 	setDefaults();
-	loadFile();
 }
 
 Settings* Settings::getInstance()
@@ -74,6 +74,7 @@ void Settings::setDefaults()
 	mStringMap["ThemeSet"] = "";
 	mStringMap["ScreenSaverBehavior"] = "dim";
 	mStringMap["Scraper"] = "TheGamesDB";
+	mStringMap["ConfigDirectory"] = "";
 
 	mTimeMap["LastXMLImportTime"] = (std::time_t)0;
 }
@@ -110,7 +111,7 @@ void saveMap(pugi::xml_document& doc, std::map<std::string, std::time_t>& map, c
 
 void Settings::saveFile()
 {
-	const std::string path = getHomePath() + "/.emulationstation/es_settings.cfg";
+	const std::string path = getConfigDirectory() + "/es_settings.cfg";
 
 	pugi::xml_document doc;
 
@@ -132,7 +133,7 @@ void Settings::saveFile()
 
 void Settings::loadFile()
 {
-	const std::string path = getHomePath() + "/.emulationstation/es_settings.cfg";
+	const std::string path = getConfigDirectory() + "/es_settings.cfg";
 
 	if(!boost::filesystem::exists(path))
 		return;

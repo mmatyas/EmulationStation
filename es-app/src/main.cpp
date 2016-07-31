@@ -54,6 +54,17 @@ bool parseArgs(int argc, char* argv[], unsigned int* width, unsigned int* height
 		}else if(strcmp(argv[i], "--no-exit") == 0)
 		{
 			Settings::getInstance()->setBool("ShowExit", false);
+		}else if(strcmp(argv[i], "--config-dir") == 0)
+		{
+			if(i >= argc - 1)
+			{
+				std::cerr << "No config directory supplied.";
+				return false;
+			}
+
+			i++;
+			auto configDir = std::string(argv[i]);
+			Settings::getInstance()->setString("ConfigDirectory", configDir);
 		}else if(strcmp(argv[i], "--debug") == 0)
 		{
 			Settings::getInstance()->setBool("Debug", true);
@@ -87,6 +98,7 @@ bool parseArgs(int argc, char* argv[], unsigned int* width, unsigned int* height
 				"--ignore-gamelist		ignore the gamelist (useful for troubleshooting)\n"
 				"--draw-framerate		display the framerate\n"
 				"--no-exit			don't show the exit option in the menu\n"
+				"--config-dir [path]		use path as config directory\n"
 				"--debug				more logging, show console on Windows\n"
 				"--scrape			scrape using command line interface\n"
 				"--windowed			not fullscreen, should be used with --resolution\n"
@@ -103,12 +115,11 @@ bool parseArgs(int argc, char* argv[], unsigned int* width, unsigned int* height
 bool verifyHomeFolderExists()
 {
 	// make sure the config directory exists
-	std::string home = getHomePath();
-	std::string configDir = home + "/.emulationstation";
+	std::string configDir = getConfigDirectory();
 	if(!fs::exists(configDir))
 	{
 		std::cout << "Creating config directory \"" << configDir << "\"\n";
-		fs::create_directory(configDir);
+		fs::create_directories(configDir);
 		if(!fs::exists(configDir))
 		{
 			std::cerr << "Config directory could not be created!\n";
@@ -203,7 +214,7 @@ int main(int argc, char* argv[])
 	}
 #endif
 
-	// if ~/.emulationstation doesn't exist and cannot be created, bail
+	// if the config dir doesn't exist and cannot be created, bail
 	if(!verifyHomeFolderExists())
 		return 1;
 
@@ -232,6 +243,9 @@ int main(int argc, char* argv[])
 	LOG(LogInfo) << " ARB_texture_non_power_of_two: " << (glExts.find("ARB_texture_non_power_of_two") != std::string::npos ? "ok" : "MISSING");
 
 	window.renderLoadingScreen();
+
+	// try to load the settings file, or use defaults
+	Settings::getInstance()->loadFile();
 
 	const char* errorMsg = NULL;
 	if(!loadSystemConfigFile(&errorMsg))
