@@ -1,4 +1,5 @@
 #include "platform.h"
+#include "Settings.h"
 #include <stdlib.h>
 #include <boost/filesystem.hpp>
 #include <iostream>
@@ -43,6 +44,9 @@ std::string getHomePath()
 
 std::string getConfigDirectory()
 {
+	if (!Settings::getInstance()->getString("ConfigDirectory").empty())
+		return Settings::getInstance()->getString("ConfigDirectory");
+
 	boost::filesystem::path path;
 #ifdef _WIN32
 	CHAR my_documents[MAX_PATH];
@@ -63,7 +67,9 @@ std::string getConfigDirectory()
 	}
 	path /= boost::filesystem::path("emulationstation");
 #endif
-	return path.generic_string();
+	auto final_path = path.generic_string();
+	Settings::getInstance()->setString("ConfigDirectory", final_path);
+	return final_path;
 }
 
 int runShutdownCommand()

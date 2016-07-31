@@ -19,12 +19,12 @@ std::vector<const char*> settings_dont_save = boost::assign::list_of
 	("Windowed")
 	("VSync")
 	("HideConsole")
+	("ConfigDirectory")
 	("IgnoreGamelist");
 
 Settings::Settings()
 {
 	setDefaults();
-	loadFile();
 }
 
 Settings* Settings::getInstance()
@@ -74,6 +74,7 @@ void Settings::setDefaults()
 	mStringMap["ThemeSet"] = "";
 	mStringMap["ScreenSaverBehavior"] = "dim";
 	mStringMap["Scraper"] = "TheGamesDB";
+	mStringMap["ConfigDirectory"] = "";
 
 	mTimeMap["LastXMLImportTime"] = (std::time_t)0;
 }

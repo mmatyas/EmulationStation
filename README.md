@@ -85,6 +85,8 @@ Configuration files are stored in `$CONFIG_DIR`, which is by default
 - on Linux: `$XDG_CONFIG_HOME/emulationstation/` which usually defaults to `~/.config/emulationstation/`
 - on OSX: `~/Library/Application Support/org.emulationstation.EmulationStation/` by default, or the same as Linux if EmulationStation is build with the `XDG_ON_OSX` CMake flag.
 
+Alternatively you can specify `$CONFIG_DIR` through the `--config-dir [path]` command line option.
+
 **es_systems.cfg:**
 
 When first run, an example systems configuration file will be created at `$CONFIG_DIR/es_systems.cfg`. This example has some comments explaining how to write the configuration file. See the "Writing an es_systems.cfg" section for more information.
