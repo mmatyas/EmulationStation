@@ -2,6 +2,7 @@
 #include "Log.h"
 #include "MetaData.h"
 #include "SystemData.h"
+#include <boost/algorithm/string/predicate.hpp>
 #include <boost/assign.hpp>
 #include <map>
 #include <sstream>
@@ -432,6 +433,13 @@ bool populate_recursive(const fs::path& relativeTo, const std::vector<std::strin
 		// see issue #75: https://github.com/Aloshi/EmulationStation/issues/75
 
 		fs::path path = *dir;
+
+		// Ignore any filenames starting with a dot.
+		// Generally a good idea on unix-ish systems, but especially important on OS X when files are stored
+		// on a filesystem (e.g. network share) which does not have native support for HFS+ metadata.
+		// In that situation, OS X puts ._SomeFile clutter all over the place.
+		if (boost::starts_with(path.string(), "."))
+			continue;
 
 		// if the extension is on our list
 		if(std::find(extensions.begin(), extensions.end(), path.extension().string()) != extensions.end())
