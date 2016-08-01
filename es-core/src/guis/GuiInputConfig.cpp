@@ -15,7 +15,12 @@ struct InputButton {
 	const std::string icon;
 };
 
+#ifdef EXTENDED_INPUT_CFG
+static const int inputCount = 24;
+#else
 static const int inputCount = 10;
+#endif
+
 static const InputButton inputButtons[inputCount] = {
 	{"Up", false, "UP", ":/help/dpad_up.svg"},
 	{"Down", false, "DOWN", ":/help/dpad_down.svg"},
@@ -23,10 +28,28 @@ static const InputButton inputButtons[inputCount] = {
 	{"Right", false, "RIGHT", ":/help/dpad_right.svg"},
 	{"A", false, "A", ":/help/button_a.svg"},
 	{"B", false, "B", ":/help/button_b.svg"},
+#ifdef EXTENDED_INPUT_CFG
+	{"X", true, "X", ":/help/button_x.svg"},
+	{"Y", true, "Y", ":/help/button_y.svg"},
+#endif
 	{"Start", false, "START", ":/help/button_start.svg"},
 	{"Select", false, "SELECT", ":/help/button_select.svg"},
 	{"LeftShoulder", true, "LEFT SHOULDER", ":/help/button_l.svg"},
-	{"RightShoulder", true, "RIGHT SHOULDER", ":/help/button_r.svg"}
+	{"RightShoulder", true, "RIGHT SHOULDER", ":/help/button_r.svg"},
+#ifdef EXTENDED_INPUT_CFG
+	{"LeftTrigger", true, "LEFT TRIGGER", ":/help/button_l.svg"},
+	{"RightTrigger", true, "RIGHT TRIGGER", ":/help/button_r.svg"},
+	{"LeftThumb", true, "LEFT THUMB", ":/help/analog_thumb.svg"},
+	{"RightThumb", true, "RIGHT THUMB", ":/help/analog_thumb.svg"},
+	{"LeftAnalogUp", true, "LEFT ANALOG UP", ":/help/analog_up.svg"},
+	{"LeftAnalogDown", true, "LEFT ANALOG DOWN", ":/help/analog_down.svg"},
+	{"LeftAnalogLeft", true, "LEFT ANALOG LEFT", ":/help/analog_left.svg"},
+	{"LeftAnalogRight", true, "LEFT ANALOG RIGHT", ":/help/analog_right.svg"},
+	{"RightAnalogUp", true, "RIGHT ANALOG UP", ":/help/analog_up.svg"},
+	{"RightAnalogDown", true, "RIGHT ANALOG DOWN", ":/help/analog_down.svg"},
+	{"RightAnalogLeft", true, "RIGHT ANALOG LEFT", ":/help/analog_left.svg"},
+	{"RightAnalogRight", true, "RIGHT ANALOG RIGHT", ":/help/analog_right.svg"},
+#endif
 };
 
 //MasterVolUp and MasterVolDown are also hooked up, but do not appear on this screen.
