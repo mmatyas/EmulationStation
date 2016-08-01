@@ -1,10 +1,10 @@
 #include "guis/GuiMsgBox.h"
+#include "Log.h"
 #include "Renderer.h"
-#include "components/TextComponent.h"
+#include "Util.h"
 #include "components/ButtonComponent.h"
 #include "components/MenuComponent.h" // for makeButtonGrid
-#include "Util.h"
-#include "Log.h"
+#include "components/TextComponent.h"
 
 #define HORIZONTAL_PADDING_PX 20
 

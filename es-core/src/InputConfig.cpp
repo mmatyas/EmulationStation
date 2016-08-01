@@ -1,10 +1,10 @@
 #include "InputConfig.h"
-#include <string>
-#include <algorithm>
-#include <SDL.h>
-#include <iostream>
-#include "Log.h"
 #include "InputManager.h"
+#include "Log.h"
+#include <SDL.h>
+#include <algorithm>
+#include <iostream>
+#include <string>
 
 //some util functions
 std::string inputTypeToString(InputType type)

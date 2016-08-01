@@ -1,8 +1,8 @@
 #include "Log.h"
+#include "platform.h"
+#include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
-#include <iostream>
-#include "platform.h"
 
 LogLevel Log::reportingLevel = LogInfo;
 FILE* Log::file = NULL; //fopen(getLogPath().c_str(), "w");

@@ -1,12 +1,12 @@
 #pragma once
 
+#include "AsyncHandle.h"
+#include "HttpReq.h"
 #include "MetaData.h"
 #include "SystemData.h"
-#include "HttpReq.h"
-#include "AsyncHandle.h"
-#include <vector>
 #include <functional>
 #include <queue>
+#include <vector>
 
 #define MAX_SCRAPER_RESULTS 7
 

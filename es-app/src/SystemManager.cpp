@@ -1,11 +1,11 @@
 #include "SystemManager.h"
-#include "Log.h"
 #include "ESException.h"
+#include "Log.h"
+#include "Settings.h"
 #include "SystemData.h"
+#include "views/ViewController.h"
 #include <fstream>
 #include <pugixml/pugixml.hpp>
-#include "Settings.h"
-#include "views/ViewController.h"
 
 namespace fs = boost::filesystem;
 

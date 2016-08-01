@@ -1,7 +1,7 @@
 #include "components/RatingComponent.h"
 #include "Renderer.h"
-#include "Window.h"
 #include "Util.h"
+#include "Window.h"
 #include "resources/SVGResource.h"
 
 RatingComponent::RatingComponent(Window* window) : GuiComponent(window)

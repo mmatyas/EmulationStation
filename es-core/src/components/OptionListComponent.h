@@ -1,14 +1,14 @@
 #pragma once
 
 #include "GuiComponent.h"
-#include "resources/Font.h"
+#include "Log.h"
 #include "Renderer.h"
 #include "Window.h"
-#include "components/TextComponent.h"
 #include "components/ImageComponent.h"
 #include "components/MenuComponent.h"
+#include "components/TextComponent.h"
+#include "resources/Font.h"
 #include <sstream>
-#include "Log.h"
 
 //Used to display a list of options.
 //Can select one or multiple options.

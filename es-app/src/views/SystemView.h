@@ -1,10 +1,10 @@
 #pragma once
 
 #include "GuiComponent.h"
-#include "components/ImageComponent.h"
-#include "components/TextComponent.h"
-#include "components/ScrollableContainer.h"
 #include "components/IList.h"
+#include "components/ImageComponent.h"
+#include "components/ScrollableContainer.h"
+#include "components/TextComponent.h"
 #include "resources/TextureResource.h"
 
 class SystemData;

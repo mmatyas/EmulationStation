@@ -1,6 +1,6 @@
 #include "Util.h"
-#include "resources/ResourceManager.h"
 #include "platform.h"
+#include "resources/ResourceManager.h"
 
 namespace fs = boost::filesystem;
 

@@ -1,9 +1,9 @@
 #pragma once
 
-#include <stddef.h>
-#include <memory>
-#include <map>
 #include <list>
+#include <map>
+#include <memory>
+#include <stddef.h>
 
 //The ResourceManager exists to...
 //Allow loading resources embedded into the executable like an actual file.

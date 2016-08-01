@@ -1,13 +1,12 @@
-#ifndef _IMAGECOMPONENT_H_
-#define _IMAGECOMPONENT_H_
+#pragma once
 
 #include "platform.h"
 #include GLHEADER
 
 #include "GuiComponent.h"
-#include <string>
-#include <memory>
 #include "resources/TextureResource.h"
+#include <memory>
+#include <string>
 
 class ImageComponent : public GuiComponent
 {
@@ -86,5 +85,3 @@ private:
 
 	std::shared_ptr<TextureResource> mTexture;
 };
-
-#endif

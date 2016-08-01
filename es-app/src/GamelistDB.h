@@ -1,10 +1,10 @@
 #pragma once
 
 #include "ESException.h"
-#include "MetaData.h"
 #include "FileData.h"
-#include <string>
+#include "MetaData.h"
 #include <sqlite3/sqlite3.h>
+#include <string>
 
 class SystemData;
 

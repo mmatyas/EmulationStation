@@ -1,8 +1,8 @@
 #include "platform.h"
 #include "Settings.h"
-#include <stdlib.h>
 #include <boost/filesystem.hpp>
 #include <iostream>
+#include <stdlib.h>
 
 #ifdef WIN32
 #include <codecvt>

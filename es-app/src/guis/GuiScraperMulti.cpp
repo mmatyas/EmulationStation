@@ -1,13 +1,13 @@
 #include "guis/GuiScraperMulti.h"
-#include "Renderer.h"
 #include "Log.h"
-#include "views/ViewController.h"
+#include "Renderer.h"
 #include "SystemManager.h"
+#include "views/ViewController.h"
 
-#include "components/TextComponent.h"
 #include "components/ButtonComponent.h"
-#include "components/ScraperSearchComponent.h"
 #include "components/MenuComponent.h" // for makeButtonGrid
+#include "components/ScraperSearchComponent.h"
+#include "components/TextComponent.h"
 #include "guis/GuiMsgBox.h"
 
 using namespace Eigen;

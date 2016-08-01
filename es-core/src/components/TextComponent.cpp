@@ -1,10 +1,10 @@
 #include "components/TextComponent.h"
-#include "Renderer.h"
 #include "Log.h"
-#include "Window.h"
+#include "Renderer.h"
+#include "Settings.h"
 #include "ThemeData.h"
 #include "Util.h"
-#include "Settings.h"
+#include "Window.h"
 
 TextComponent::TextComponent(Window* window) : GuiComponent(window),
 	mFont(Font::get(FONT_SIZE_MEDIUM)), mUppercase(false), mColor(0x000000FF), mAutoCalcExtent(true, true), mAlignment(ALIGN_LEFT), mLineSpacing(1.5f)

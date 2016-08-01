@@ -1,8 +1,8 @@
 #include "components/DateTimeComponent.h"
-#include "Renderer.h"
-#include "Window.h"
 #include "Log.h"
+#include "Renderer.h"
 #include "Util.h"
+#include "Window.h"
 
 DateTimeComponent::DateTimeComponent(Window* window, DisplayMode dispMode) : GuiComponent(window),
 	mEditing(false), mEditIndex(0), mDisplayMode(dispMode), mRelativeUpdateAccumulator(0),

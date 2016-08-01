@@ -1,13 +1,12 @@
-#ifndef _LOG_H_
-#define _LOG_H_
+#pragma once
 
 #define LOG(level) \
 if(level > Log::getReportingLevel()) ; \
 else Log().get(level)
 
-#include <string>
-#include <sstream>
 #include <iostream>
+#include <sstream>
+#include <string>
 
 enum LogLevel { LogError, LogWarning, LogInfo, LogDebug };
 
@@ -34,5 +33,3 @@ private:
 	static FILE* getOutput();
 	LogLevel messageLevel;
 };
-
-#endif

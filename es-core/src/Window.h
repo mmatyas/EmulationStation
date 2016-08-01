@@ -1,9 +1,9 @@
 #pragma once
 
 #include "GuiComponent.h"
-#include <vector>
-#include "resources/Font.h"
 #include "InputManager.h"
+#include "resources/Font.h"
+#include <vector>
 
 class HelpComponent;
 class ImageComponent;

@@ -1,7 +1,7 @@
+#include "GamelistDB.h"
 #include "GuiComponent.h"
 #include "components/MenuComponent.h"
 #include "components/OptionListComponent.h"
-#include "GamelistDB.h"
 
 class IGameListView;
 

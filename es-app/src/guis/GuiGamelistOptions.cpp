@@ -1,9 +1,9 @@
 #include "GuiGamelistOptions.h"
 #include "GuiMetaDataEd.h"
-#include "views/gamelist/IGameListView.h"
-#include "views/ViewController.h"
-#include "SystemManager.h"
 #include "Settings.h"
+#include "SystemManager.h"
+#include "views/ViewController.h"
+#include "views/gamelist/IGameListView.h"
 
 GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : GuiComponent(window),
 	mSystem(system),

@@ -1,10 +1,10 @@
 #include "views/gamelist/BasicGameListView.h"
-#include "views/ViewController.h"
 #include "Renderer.h"
-#include "Window.h"
-#include "ThemeData.h"
-#include "SystemData.h"
 #include "Settings.h"
+#include "SystemData.h"
+#include "ThemeData.h"
+#include "Window.h"
+#include "views/ViewController.h"
 
 BasicGameListView::BasicGameListView(Window* window, const FileData& root)
 	: ISimpleGameListView(window, root), mList(window)
