@@ -1,25 +1,25 @@
 //EmulationStation, a graphical front-end for ROM browsing. Created by Alec "Aloshi" Lofquist.
 //http://www.aloshi.com
 
-#include <SDL.h>
-#include <iostream>
-#include <iomanip>
+#include "AudioManager.h"
+#include "EmulationStation.h"
+#include "GamelistDB.h"
+#include "Log.h"
 #include "Renderer.h"
-#include "views/ViewController.h"
+#include "Settings.h"
 #include "SystemData.h"
-#include <boost/filesystem.hpp>
+#include "SystemManager.h"
+#include "Window.h"
 #include "guis/GuiDetectDevice.h"
 #include "guis/GuiMsgBox.h"
-#include "AudioManager.h"
 #include "platform.h"
-#include "Log.h"
-#include "Window.h"
-#include "EmulationStation.h"
-#include "Settings.h"
-#include <sstream>
+#include "views/ViewController.h"
+#include <SDL.h>
+#include <boost/filesystem.hpp>
 #include <boost/locale.hpp>
-#include "GamelistDB.h"
-#include "SystemManager.h"
+#include <iomanip>
+#include <iostream>
+#include <sstream>
 
 #ifdef WIN32
 #include <Windows.h>

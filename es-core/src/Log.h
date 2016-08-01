@@ -5,9 +5,9 @@
 if(level > Log::getReportingLevel()) ; \
 else Log().get(level)
 
-#include <string>
-#include <sstream>
 #include <iostream>
+#include <sstream>
+#include <string>
 
 enum LogLevel { LogError, LogWarning, LogInfo, LogDebug };
 

@@ -1,12 +1,12 @@
 #ifndef _INPUTCONFIG_H_
 #define _INPUTCONFIG_H_
 
-#include <map>
-#include <vector>
-#include <string>
-#include <SDL.h>
-#include <sstream>
 #include "pugixml/pugixml.hpp"
+#include <SDL.h>
+#include <map>
+#include <sstream>
+#include <string>
+#include <vector>
 
 #define DEVICE_KEYBOARD -1
 

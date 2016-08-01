@@ -1,10 +1,10 @@
 #ifndef _SOUND_H_
 #define _SOUND_H_
 
-#include <string>
+#include "SDL_audio.h"
 #include <map>
 #include <memory>
-#include "SDL_audio.h"
+#include <string>
 
 class ThemeData;
 

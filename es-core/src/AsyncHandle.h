@@ -1,5 +1,7 @@
 #pragma once
 
+#include <string>
+
 enum AsyncHandleStatus
 {
 	ASYNC_IN_PROGRESS,

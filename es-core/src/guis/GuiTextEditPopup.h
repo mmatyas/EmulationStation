@@ -1,10 +1,10 @@
 #include "GuiComponent.h"
 
-#include "components/NinePatchComponent.h"
 #include "components/ButtonComponent.h"
 #include "components/ComponentGrid.h"
-#include "components/TextEditComponent.h"
+#include "components/NinePatchComponent.h"
 #include "components/TextComponent.h"
+#include "components/TextEditComponent.h"
 
 class GuiTextEditPopup : public GuiComponent
 {

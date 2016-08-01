@@ -1,9 +1,9 @@
 #pragma once
 
-#include <vector>
-#include <string>
-#include <boost/filesystem.hpp>
 #include "MetaData.h"
+#include <boost/filesystem.hpp>
+#include <string>
+#include <vector>
 
 class SystemData;
 struct FileSort;

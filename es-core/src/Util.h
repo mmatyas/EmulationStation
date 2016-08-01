@@ -1,9 +1,9 @@
 #pragma once
 
-#include <string>
 #include <Eigen/Dense>
-#include <boost/filesystem.hpp>
 #include <boost/date_time.hpp>
+#include <boost/filesystem.hpp>
+#include <string>
 
 // the original gamelist.xml used this format - it's something ISO, I forget what
 #define LEGACY_TIME_STRING_FORMAT "%Y%m%dT%H%M%S%F%q"

@@ -1,10 +1,10 @@
 #pragma once
 
-#include "components/NinePatchComponent.h"
-#include "components/ComponentList.h"
-#include "components/TextComponent.h"
-#include "components/ComponentGrid.h"
 #include "Util.h"
+#include "components/ComponentGrid.h"
+#include "components/ComponentList.h"
+#include "components/NinePatchComponent.h"
+#include "components/TextComponent.h"
 
 class ButtonComponent;
 class ImageComponent;

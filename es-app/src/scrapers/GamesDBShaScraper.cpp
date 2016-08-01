@@ -1,15 +1,15 @@
 #include "scrapers/GamesDBShaScraper.h"
 #include "HttpReq.h"
 #include "Log.h"
-#include "pugixml/pugixml.hpp"
 #include "MetaData.h"
 #include "Settings.h"
 #include "Util.h"
+#include "pugixml/pugixml.hpp"
+#include "scrapers/ROMHasher.h"
 #include <boost/filesystem.hpp>
 #include <fstream>
 #include <map>
 #include <vector>
-#include "scrapers/ROMHasher.h"
 
 namespace GamesDBShaScraper {
 

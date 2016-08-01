@@ -1,13 +1,13 @@
 #pragma once
 
-#include <string>
+#include "ThemeData.h"
 #include "platform.h"
+#include "resources/ResourceManager.h"
+#include <Eigen/Dense>
 #include GLHEADER
 #include <ft2build.h>
 #include FT_FREETYPE_H
-#include <Eigen/Dense>
-#include "resources/ResourceManager.h"
-#include "ThemeData.h"
+#include <string>
 
 class TextCache;
 

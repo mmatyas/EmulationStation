@@ -1,6 +1,6 @@
 #include "components/ComponentList.h"
-#include "Util.h"
 #include "Log.h"
+#include "Util.h"
 
 #define TOTAL_HORIZONTAL_PADDING_PX 20
 

@@ -1,8 +1,8 @@
 #pragma once
 
 #include "GuiComponent.h"
-#include "components/MenuComponent.h"
 #include "MetaData.h"
+#include "components/MenuComponent.h"
 #include "scrapers/Scraper.h"
 
 #include <functional>

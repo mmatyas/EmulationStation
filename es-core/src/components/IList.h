@@ -1,12 +1,12 @@
 #pragma once
 
-#include <string>
-#include <vector>
-#include <memory>
 #include "GuiComponent.h"
+#include "Renderer.h"
 #include "components/ImageComponent.h"
 #include "resources/Font.h"
-#include "Renderer.h"
+#include <memory>
+#include <string>
+#include <vector>
 
 enum CursorState
 {

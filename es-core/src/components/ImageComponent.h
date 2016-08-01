@@ -5,9 +5,9 @@
 #include GLHEADER
 
 #include "GuiComponent.h"
-#include <string>
-#include <memory>
 #include "resources/TextureResource.h"
+#include <memory>
+#include <string>
 
 class ImageComponent : public GuiComponent
 {

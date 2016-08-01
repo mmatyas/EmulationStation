@@ -2,8 +2,8 @@
 
 #include "views/gamelist/IGameListView.h"
 
-#include "components/TextComponent.h"
 #include "components/ImageComponent.h"
+#include "components/TextComponent.h"
 
 class ISimpleGameListView : public IGameListView
 {

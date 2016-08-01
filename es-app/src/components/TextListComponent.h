@@ -1,17 +1,17 @@
 #pragma once
 
-#include "components/IList.h"
-#include "Renderer.h"
-#include "resources/Font.h"
 #include "InputManager.h"
-#include "Sound.h"
 #include "Log.h"
+#include "Renderer.h"
+#include "Sound.h"
 #include "ThemeData.h"
 #include "Util.h"
-#include <vector>
-#include <string>
-#include <memory>
+#include "components/IList.h"
+#include "resources/Font.h"
 #include <functional>
+#include <memory>
+#include <string>
+#include <vector>
 
 struct TextListData
 {

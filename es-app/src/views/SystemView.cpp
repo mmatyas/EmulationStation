@@ -1,14 +1,14 @@
 #include "views/SystemView.h"
-#include "SystemData.h"
-#include "Renderer.h"
 #include "Log.h"
-#include "Window.h"
-#include "views/ViewController.h"
-#include "animations/LambdaAnimation.h"
-#include "SystemData.h"
+#include "Renderer.h"
 #include "Settings.h"
+#include "SystemData.h"
+#include "SystemData.h"
 #include "SystemManager.h"
 #include "Util.h"
+#include "Window.h"
+#include "animations/LambdaAnimation.h"
+#include "views/ViewController.h"
 
 #define SELECTED_SCALE 1.5f
 #define LOGO_PADDING ((logoSize().x() * (SELECTED_SCALE - 1)/2) + (mSize.x() * 0.06f))

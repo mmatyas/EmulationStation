@@ -1,7 +1,7 @@
 #include "FileData.h"
+#include "Settings.h"
 #include "SystemData.h"
 #include "SystemManager.h"
-#include "Settings.h"
 
 namespace fs = boost::filesystem;
 

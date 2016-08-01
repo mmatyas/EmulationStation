@@ -1,8 +1,8 @@
 #ifndef _AUDIOMANAGER_H_
 #define _AUDIOMANAGER_H_
 
-#include <vector>
 #include <memory>
+#include <vector>
 
 #include "SDL_audio.h"
 

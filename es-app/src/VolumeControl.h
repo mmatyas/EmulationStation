@@ -3,8 +3,8 @@
 #include <memory>
 #include <stdint.h>
 
-#if defined (__APPLE__)
-    #warning TODO: Not implemented for MacOS yet!!!
+#if defined(__APPLE__)
+	#warning TODO: Not implemented for MacOS yet!!!
 #elif defined(__linux__)
 	#include <unistd.h>
 	#include <fcntl.h>

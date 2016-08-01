@@ -3,9 +3,9 @@
 #include <boost/filesystem.hpp>
 #include <boost/uuid/sha1.hpp>
 #include <fstream>
-#include <sstream>
 #include <iomanip>
 #include <map>
+#include <sstream>
 
 namespace ROMHasher
 {

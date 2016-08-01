@@ -1,9 +1,9 @@
 #include "GuiComponent.h"
-#include "Window.h"
 #include "Log.h"
 #include "Renderer.h"
-#include "animations/AnimationController.h"
 #include "ThemeData.h"
+#include "Window.h"
+#include "animations/AnimationController.h"
 
 GuiComponent::GuiComponent(Window* window) : mWindow(window), mParent(NULL), mOpacity(255),
 	mPosition(Eigen::Vector3f::Zero()), mSize(Eigen::Vector2f::Zero()), mTransform(Eigen::Affine3f::Identity())

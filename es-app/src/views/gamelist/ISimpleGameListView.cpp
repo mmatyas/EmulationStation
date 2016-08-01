@@ -1,9 +1,9 @@
 #include "views/gamelist/ISimpleGameListView.h"
+#include "Settings.h"
+#include "Sound.h"
 #include "ThemeData.h"
 #include "Window.h"
 #include "views/ViewController.h"
-#include "Sound.h"
-#include "Settings.h"
 
 ISimpleGameListView::ISimpleGameListView(Window* window, const FileData& root) : IGameListView(window, root),
 	mHeaderText(window), mHeaderImage(window), mBackground(window), mThemeExtras(window)

@@ -1,8 +1,8 @@
 #include "ResourceManager.h"
 #include "Log.h"
 #include "../data/Resources.h"
-#include <fstream>
 #include <boost/filesystem.hpp>
+#include <fstream>
 
 namespace fs = boost::filesystem;
 

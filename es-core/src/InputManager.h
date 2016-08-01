@@ -2,9 +2,9 @@
 #define _INPUTMANAGER_H_
 
 #include <SDL.h>
-#include <vector>
 #include <map>
 #include <string>
+#include <vector>
 
 class InputConfig;
 class Window;

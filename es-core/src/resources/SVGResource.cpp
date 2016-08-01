@@ -1,9 +1,9 @@
 #include "SVGResource.h"
-#include "nanosvg/nanosvg.h"
-#include "nanosvg/nanosvgrast.h"
+#include "ImageIO.h"
 #include "Log.h"
 #include "Util.h"
-#include "ImageIO.h"
+#include "nanosvg/nanosvg.h"
+#include "nanosvg/nanosvgrast.h"
 
 #define DPI 96
 

@@ -1,13 +1,13 @@
 #include "Renderer.h"
-#include <iostream>
-#include "platform.h"
-#include GLHEADER
-#include "resources/Font.h"
-#include <SDL.h>
-#include "Log.h"
 #include "ImageIO.h"
-#include "../data/Resources.h"
+#include "Log.h"
 #include "Settings.h"
+#include "platform.h"
+#include "resources/Font.h"
+#include "../data/Resources.h"
+#include <iostream>
+#include GLHEADER
+#include <SDL.h>
 
 #ifdef USE_OPENGL_ES
 	#define glOrtho glOrthof

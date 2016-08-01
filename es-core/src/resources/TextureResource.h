@@ -2,9 +2,9 @@
 
 #include "resources/ResourceManager.h"
 
-#include <string>
-#include <Eigen/Dense>
 #include "platform.h"
+#include <Eigen/Dense>
+#include <string>
 #include GLHEADER
 
 // An OpenGL texture.

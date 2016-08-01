@@ -1,11 +1,11 @@
 #include "ThemeData.h"
-#include "Renderer.h"
-#include "resources/Font.h"
-#include "Sound.h"
-#include "resources/TextureResource.h"
 #include "Log.h"
+#include "Renderer.h"
 #include "Settings.h"
+#include "Sound.h"
 #include "pugixml/pugixml.hpp"
+#include "resources/Font.h"
+#include "resources/TextureResource.h"
 #include <boost/assign.hpp>
 
 #include "components/ImageComponent.h"

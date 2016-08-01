@@ -1,10 +1,10 @@
 #include "GamelistDB.h"
-#include "MetaData.h"
 #include "Log.h"
+#include "MetaData.h"
 #include "SystemData.h"
-#include <sstream>
-#include <map>
 #include <boost/assign.hpp>
+#include <map>
+#include <sstream>
 
 namespace fs = boost::filesystem;
 

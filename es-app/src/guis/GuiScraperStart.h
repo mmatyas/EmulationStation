@@ -2,8 +2,8 @@
 
 #include "GuiComponent.h"
 #include "SystemData.h"
-#include "scrapers/Scraper.h"
 #include "components/MenuComponent.h"
+#include "scrapers/Scraper.h"
 #include <queue>
 
 typedef std::function<bool(SystemData*, const FileData&)> GameFilterFunc;

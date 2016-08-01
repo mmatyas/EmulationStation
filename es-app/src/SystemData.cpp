@@ -1,15 +1,15 @@
 #include "SystemData.h"
+#include "AudioManager.h"
+#include "InputManager.h"
+#include "Log.h"
+#include "Renderer.h"
+#include "Settings.h"
+#include "VolumeControl.h"
+#include <SDL_joystick.h>
 #include <boost/filesystem.hpp>
 #include <fstream>
-#include <stdlib.h>
-#include <SDL_joystick.h>
-#include "Renderer.h"
-#include "AudioManager.h"
-#include "VolumeControl.h"
-#include "Log.h"
-#include "InputManager.h"
 #include <iostream>
-#include "Settings.h"
+#include <stdlib.h>
 
 namespace fs = boost::filesystem;
 

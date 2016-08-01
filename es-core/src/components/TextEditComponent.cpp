@@ -1,9 +1,9 @@
 #include "components/TextEditComponent.h"
 #include "Log.h"
-#include "resources/Font.h"
-#include "Window.h"
 #include "Renderer.h"
 #include "Util.h"
+#include "Window.h"
+#include "resources/Font.h"
 
 #define TEXT_PADDING_HORIZ 10
 #define TEXT_PADDING_VERT 2
