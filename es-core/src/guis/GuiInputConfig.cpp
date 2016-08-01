@@ -7,13 +7,50 @@
 #include "components/MenuComponent.h"
 #include "components/TextComponent.h"
 
+
+struct InputButton {
+	const std::string name;
+	const bool skippable;
+	const std::string displayName;
+	const std::string icon;
+};
+
+#ifdef EXTENDED_INPUT_CFG
+static const int inputCount = 24;
+#else
 static const int inputCount = 10;
-static const char* inputName[inputCount] = { "Up", "Down", "Left", "Right", "A", "B", "Start", "Select", "PageUp", "PageDown" };
-static const bool inputSkippable[inputCount] = { false, false, false, false, false, false, false, false, true, true };
-static const char* inputDispName[inputCount] = { "UP", "DOWN", "LEFT", "RIGHT", "A", "B", "START", "SELECT", "PAGE UP", "PAGE DOWN" };
-static const char* inputIcon[inputCount] = { ":/help/dpad_up.svg", ":/help/dpad_down.svg", ":/help/dpad_left.svg", ":/help/dpad_right.svg",
-											":/help/button_a.svg", ":/help/button_b.svg", ":/help/button_start.svg", ":/help/button_select.svg",
-											":/help/button_l.svg", ":/help/button_r.svg" };
+#endif
+
+static const InputButton inputButtons[inputCount] = {
+	{"Up", false, "UP", ":/help/dpad_up.svg"},
+	{"Down", false, "DOWN", ":/help/dpad_down.svg"},
+	{"Left", false, "LEFT", ":/help/dpad_left.svg"},
+	{"Right", false, "RIGHT", ":/help/dpad_right.svg"},
+	{"A", false, "A", ":/help/button_a.svg"},
+	{"B", false, "B", ":/help/button_b.svg"},
+#ifdef EXTENDED_INPUT_CFG
+	{"X", true, "X", ":/help/button_x.svg"},
+	{"Y", true, "Y", ":/help/button_y.svg"},
+#endif
+	{"Start", false, "START", ":/help/button_start.svg"},
+	{"Select", false, "SELECT", ":/help/button_select.svg"},
+	{"LeftShoulder", true, "LEFT SHOULDER", ":/help/button_l.svg"},
+	{"RightShoulder", true, "RIGHT SHOULDER", ":/help/button_r.svg"},
+#ifdef EXTENDED_INPUT_CFG
+	{"LeftTrigger", true, "LEFT TRIGGER", ":/help/button_l.svg"},
+	{"RightTrigger", true, "RIGHT TRIGGER", ":/help/button_r.svg"},
+	{"LeftThumb", true, "LEFT THUMB", ":/help/analog_thumb.svg"},
+	{"RightThumb", true, "RIGHT THUMB", ":/help/analog_thumb.svg"},
+	{"LeftAnalogUp", true, "LEFT ANALOG UP", ":/help/analog_up.svg"},
+	{"LeftAnalogDown", true, "LEFT ANALOG DOWN", ":/help/analog_down.svg"},
+	{"LeftAnalogLeft", true, "LEFT ANALOG LEFT", ":/help/analog_left.svg"},
+	{"LeftAnalogRight", true, "LEFT ANALOG RIGHT", ":/help/analog_right.svg"},
+	{"RightAnalogUp", true, "RIGHT ANALOG UP", ":/help/analog_up.svg"},
+	{"RightAnalogDown", true, "RIGHT ANALOG DOWN", ":/help/analog_down.svg"},
+	{"RightAnalogLeft", true, "RIGHT ANALOG LEFT", ":/help/analog_left.svg"},
+	{"RightAnalogRight", true, "RIGHT ANALOG RIGHT", ":/help/analog_right.svg"},
+#endif
+};
 
 //MasterVolUp and MasterVolDown are also hooked up, but do not appear on this screen.
 //If you want, you can manually add them to es_input.cfg.
@@ -64,7 +101,7 @@ GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfi
 
 		// icon
 		auto icon = std::make_shared<ImageComponent>(mWindow);
-		icon->setImage(inputIcon[i]);
+		icon->setImage(inputButtons[i].icon);
 		icon->setColorShift(0x777777FF);
 		icon->setResize(0, Font::get(FONT_SIZE_MEDIUM)->getLetterHeight() * 1.25f);
 		row.addElement(icon, false);
@@ -74,7 +111,7 @@ GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfi
 		spacer->setSize(16, 0);
 		row.addElement(spacer, false);
 
-		auto text = std::make_shared<TextComponent>(mWindow, inputDispName[i], Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
+		auto text = std::make_shared<TextComponent>(mWindow, inputButtons[i].displayName, Font::get(FONT_SIZE_MEDIUM), 0x777777FF);
 		row.addElement(text, true);
 
 		auto mapping = std::make_shared<TextComponent>(mWindow, "-NOT DEFINED-", Font::get(FONT_SIZE_MEDIUM, FONT_PATH_LIGHT), 0x999999FF, ALIGN_RIGHT);
@@ -137,7 +174,7 @@ GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfi
 
 	// only show "HOLD TO SKIP" if this input is skippable
 	mList->setCursorChangedCallback([this](CursorState state) {
-		bool skippable = inputSkippable[mList->getCursorId()];
+		bool skippable = inputButtons[mList->getCursorId()].skippable;
 		mSubtitle2->setOpacity(skippable * 255);
 	});
 
@@ -178,7 +215,7 @@ void GuiInputConfig::onSizeChanged()
 
 void GuiInputConfig::update(int deltaTime)
 {
-	if(mConfiguringRow && mHoldingInput && inputSkippable[mHeldInputId])
+	if(mConfiguringRow && mHoldingInput && inputButtons[mHeldInputId].skippable)
 	{
 		int prevSec = mHeldTime / 1000;
 		mHeldTime += deltaTime;
@@ -256,7 +293,8 @@ bool GuiInputConfig::assign(Input input, int inputId)
 
 	// if this input is mapped to something other than "nothing" or the current row, error
 	// (if it's the same as what it was before, allow it)
-	if(mTargetConfig->getMappedTo(input).size() > 0 && !mTargetConfig->isMappedTo(inputName[inputId], input))
+	if(mTargetConfig->getMappedTo(input).size() > 0 &&
+		!mTargetConfig->isMappedTo(inputButtons[inputId].name, input))
 	{
 		error(mMappings.at(inputId), "Already mapped!");
 		return false;
@@ -265,14 +303,14 @@ bool GuiInputConfig::assign(Input input, int inputId)
 	setAssignedTo(mMappings.at(inputId), input);
 
 	input.configured = true;
-	mTargetConfig->mapInput(inputName[inputId], input);
+	mTargetConfig->mapInput(inputButtons[inputId].name, input);
 
-	LOG(LogInfo) << "  Mapping [" << input.string() << "] -> " << inputName[inputId];
+	LOG(LogInfo) << "  Mapping [" << input.string() << "] -> " << inputButtons[inputId].name;
 
 	return true;
 }
 
 void GuiInputConfig::clearAssignment(int inputId)
 {
-	mTargetConfig->unmapInput(inputName[inputId]);
+	mTargetConfig->unmapInput(inputButtons[inputId].name);
 }

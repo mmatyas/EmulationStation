@@ -65,6 +65,11 @@ if(XDG_ON_OSX)
     add_definitions(-DUSE_XDG_OSX)
 endif()
 
+option(EXTENDED_INPUT_CFG "Extended input config (analog, triggers, XY)" OFF)
+if(EXTENDED_INPUT_CFG)
+    add_definitions(-DEXTENDED_INPUT_CFG)
+endif()
+
 #-------------------------------------------------------------------------------
 
 # Require C++11

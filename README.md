@@ -98,7 +98,7 @@ When you first start EmulationStation, you will be prompted to configure an inpu
 
 1. Hold a button on the device you want to configure.  This includes the keyboard.
 
-2. Press the buttons as they appear in the list.  Some inputs can be skipped by holding any button down for a few seconds (e.g. page up/page down).
+2. Press the buttons as they appear in the list.  Some inputs can be skipped by holding any button down for a few seconds (e.g. left/right shoulders).
 
 3. You can review your mappings by pressing up and down, making any changes by pressing A.
 
