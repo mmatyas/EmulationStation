@@ -269,7 +269,7 @@ protected:
 		int absAmt = amt < 0 ? -amt : amt;
 
 		// stop at the end if we've been holding down the button for a long time or
-		// we're scrolling faster than one item at a time (e.g. page up/down)
+		// we're scrolling faster than one item at a time (e.g. left/right shoulders)
 		// otherwise, loop around
 		if((mLoopType == LIST_PAUSE_AT_END && (mScrollTier > 0 || absAmt > 1)) ||
 			mLoopType == LIST_NEVER_LOOP)

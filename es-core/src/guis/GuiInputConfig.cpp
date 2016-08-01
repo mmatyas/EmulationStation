@@ -25,8 +25,8 @@ static const InputButton inputButtons[inputCount] = {
 	{"B", false, "B", ":/help/button_b.svg"},
 	{"Start", false, "START", ":/help/button_start.svg"},
 	{"Select", false, "SELECT", ":/help/button_select.svg"},
-	{"PageUp", true, "PAGE UP", ":/help/button_l.svg"},
-	{"PageDown", true, "PAGE DOWN" ":/help/button_r.svg"}
+	{"LeftShoulder", true, "LEFT SHOULDER", ":/help/button_l.svg"},
+	{"RightShoulder", true, "RIGHT SHOULDER", ":/help/button_r.svg"}
 };
 
 //MasterVolUp and MasterVolDown are also hooked up, but do not appear on this screen.
