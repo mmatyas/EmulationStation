@@ -113,9 +113,9 @@ void ViewController::playViewTransition()
 	if(target == -mCamera.translation() && !isAnimationPlaying(0))
 		return;
 
-	if(Settings::getInstance()->getString("TransitionStyle") == "fade")
+	const std::string transitionStyle = Settings::getInstance()->getString("TransitionStyle");
+	if(transitionStyle == "fade")
 	{
-		// fade
 		// stop whatever's currently playing, leaving mFadeOpacity wherever it is
 		cancelAnimation(0);
 
@@ -141,10 +141,11 @@ void ViewController::playViewTransition()
 		}else{
 			advanceAnimation(0, (int)(mFadeOpacity * FADE_DURATION));
 		}
-	}else{
-		// slide
+	} else if(transitionStyle == "slide") {
 		setAnimation(new MoveCameraAnimation(mCamera, target));
 		updateHelpPrompts(); // update help prompts immediately
+	} else { // none
+		updateHelpPrompts(); // update help prompts immediately, no animation
 	}
 }
 
@@ -170,7 +171,8 @@ void ViewController::launch(FileData* game, Eigen::Vector3f center)
 	stopAnimation(1); // make sure the fade in isn't still playing
 	mLockInput = true;
 
-	if(Settings::getInstance()->getString("TransitionStyle") == "fade")
+	const std::string transitionStyle = Settings::getInstance()->getString("TransitionStyle");
+	if (transitionStyle == "fade")
 	{
 		// fade out, launch game, fade back in
 		auto fadeFunc = [this](float t) {
@@ -185,7 +187,7 @@ void ViewController::launch(FileData* game, Eigen::Vector3f center)
 			setAnimation(new LambdaAnimation(fadeFunc, 800), 0, nullptr, true);
 			this->onFileChanged(game, FILE_METADATA_CHANGED);
 		});
-	}else{
+	} else if (transitionStyle == "slide") {
 		// move camera to zoom in on center + fade out, launch game, come back in
 		setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 1500), 0, [this, origCamera, center, game] 
 		{
@@ -195,6 +197,11 @@ void ViewController::launch(FileData* game, Eigen::Vector3f center)
 			setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 600), 0, nullptr, true);
 			this->onFileChanged(game, FILE_METADATA_CHANGED);
 		});
+	} else { // none
+		game->getSystem()->launchGame(mWindow, game);
+		mCamera = origCamera;
+		mLockInput = false;
+		this->onFileChanged(game, FILE_METADATA_CHANGED);
 	}
 }
 
